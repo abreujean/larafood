@@ -19,11 +19,11 @@ class CreatePermissionProfileTable extends Migration
             $table->unsignedBigInteger('profile_id');
 
             $table->foreign('permission_id')
-                    ->references('permissions')
+                    ->references('id')
                     ->on('permissions')
                     ->onDelete('cascade');
             $table->foreign('profile_id')
-                    ->references('permissions')
+                    ->references('id')
                     ->on('profiles')
                     ->onDelete('cascade');
         });

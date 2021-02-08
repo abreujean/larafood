@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {   
-
     protected $repository;
 
     public function __construct(Profile $profile)
