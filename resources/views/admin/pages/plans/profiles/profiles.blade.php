@@ -1,16 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissões do perfil {$profile->name}')
+@section('title', 'Perfis do plano {$plan->name}')
 
 @section('content_header')
 
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('profiles.index') }}" class="active">Perfis</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('plans.index') }}">Planos</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.profiles', $plan->id) }}" class="active">Perfis</a></li>
     </ol>
 
-    <h1>Permissões do perfil <b>{{ $profile->name }}</b>
-        <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-dark">ADD NOVA PERMISSÂO</a>
+    <h1>Perfis do plano <b>{{ $plan->name }}</b>
+        <a href="{{ route('plans.profiles.available', $plan->id) }}" class="btn btn-dark">ADD NOVO PERFIL</a>
     </h1>
 @stop
 
@@ -25,13 +26,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($permissions as $permission)
+                    @foreach ($profiles as $profile)
                         <tr>
                             <td>
-                                {{ $permission->name }}
+                                {{ $profile->name }}
                             </td>
                             <td style="width=10px;">
-                                <a href="{{ route('profiles.permissions.detach', [$profile->id, $permission->id]) }}" class="btn btn-danger" >DESVINCULAR</a>
+                                <a href="{{ route('plans.profile.detach', [$plan->id, $profile->id]) }}" class="btn btn-danger" >DESVINCULAR</a>
                             </td>
                         </tr>
                     @endforeach
@@ -40,9 +41,9 @@
         </div>
         <div class="card-footer">
             @if (isset($filters))
-                {!! $permissions->appends($filters)->links("pagination::bootstrap-4") !!}
+                {!! $profiles->appends($filters)->links("pagination::bootstrap-4") !!}
             @else
-                {!! $permissions->links("pagination::bootstrap-4") !!}  
+                {!! $profiles->links("pagination::bootstrap-4") !!}  
             @endif
         </div>
     </div>
