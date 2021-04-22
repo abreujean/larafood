@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')
     ->namespace('App\Http\Controllers\Admin')
+    ->middleware('auth')
     ->group(function() {
             
     /**
@@ -65,7 +67,9 @@ Route::prefix('admin')
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\Site\SiteController@index')->name('site.home');
+/**
+ * Auth routes
+ */
+Auth::routes();
 
