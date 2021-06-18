@@ -64,9 +64,6 @@ Route::prefix('admin')
 
 });
 
-
-
-
 Route::get('/', 'App\Http\Controllers\Site\SiteController@index')->name('site.home');
 /**
  * Auth routes
