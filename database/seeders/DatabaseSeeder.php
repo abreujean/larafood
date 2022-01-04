@@ -1,7 +1,9 @@
+
 <?php
 
-namespace Database\Seeders;
-
+use Database\Seeders\PlansTableSeeder;
+use Database\Seeders\TenantsTableSeeder;
+use Database\Seeders\UsersTableSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
-        $this->call(UsersTableSeeder::class);
+        $this->call([
+            PlansTableSeeder::class,
+            TenantsTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
     }
 }

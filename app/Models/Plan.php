@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
     protected $fillable = ['name', 'url', 'price', 'description'];
 
+
     public function details()
     {
-         return $this->hasMany(DetailPlan::class);
+        return $this->hasMany(DetailPlan::class);
     }
 
     public function profiles()
@@ -19,11 +19,17 @@ class Plan extends Model
         return $this->belongsToMany(Profile::class);
     }
 
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class);
+    }
+
+
     public function search($filter = null)
     {
-        $results = $this ->where('name', 'LIKE', "%{$filter}%")
-                         ->orWhere('description', 'LIKE', "%{$filter}%")
-                         ->paginate();
+        $results = $this->where('name', 'LIKE', "%{$filter}%")
+                        ->orWhere('description', 'LIKE', "%{$filter}%")
+                        ->paginate();
 
         return $results;
     }
