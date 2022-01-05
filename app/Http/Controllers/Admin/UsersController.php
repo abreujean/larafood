@@ -151,4 +151,5 @@ class UserController extends Controller
 
         return view('admin.pages.users.index', compact('users', 'filters'));
     }
+
 }
