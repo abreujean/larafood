@@ -246,6 +246,35 @@ return [
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-lock'
         ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+            'can'  =>  'users',
+        ],
+        [
+            'text' => 'Categorias',
+            'url'  => 'admin/categories',
+            'icon' => 'fas fa-layer-group',
+            'can'  =>  'categories',
+        ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'admin/products',
+            'icon' => 'fas fa-hamburger',
+            'can'  =>  'products',
+        ],
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/tables',
+            'icon' => 'fas fa-tablet',
+            'can'  =>  'tables',
+        ],
+        [
+            'text' => 'Pedidos',
+            'url'  => 'admin/orders',
+            'icon' => 'fas fa-utensils',
+        ],
     ],
 
     /*
